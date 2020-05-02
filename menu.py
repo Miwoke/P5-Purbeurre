@@ -154,9 +154,9 @@ class Menu:
         print("--------------------- FAVORIES ---------------------")
         print()
         data.cursor.execute("SELECT * FROM Favorite")
-        test = data.cursor.fetchall()
+        gap = data.cursor.fetchall()
         x = 0
-        while x < len(test):
+        while x < len(gap):
             data.cursor.execute("SELECT product_name FROM Favorite")
             f = data.cursor.fetchall()
             tp = self.convertTuple(f[0 + x])
@@ -216,7 +216,7 @@ class Menu:
         print()
         save = int(input("Sauvegarder votre recherche ? 1 pour validé, 2 pour retourner au menu, 0 pour quitter: "))
         if save == 1:
-            data.cursor.execute("INSERT INTO Favorite (product_name, store, ingredients, grade, url, product_id) SELECT product_name, store, ingredients, grade, url, product_id FROM Products_Mueslis_A WHERE id=1")
+            data.cursor.execute("INSERT IGNORE INTO Favorite (product_name, store, ingredients, grade, url, product_id) SELECT product_name, store, ingredients, grade, url, product_id FROM Products_Mueslis_A WHERE id=1")
             data.db.commit()
             print("savegarder dans vos favoris")
             print()
@@ -270,7 +270,7 @@ class Menu:
         print()
         save = int(input("Sauvegarder votre recherche ? 1 pour validé, 2 pour retourner au menu, 0 pour quitter: "))
         if save == 1:
-            data.cursor.execute("INSERT INTO Favorite (product_name, store, ingredients, grade, url, product_id) SELECT product_name, store, ingredients, grade, url, product_id FROM Products_Mayonnaises_A WHERE id=1")
+            data.cursor.execute("INSERT IGNORE INTO Favorite (product_name, store, ingredients, grade, url, product_id) SELECT product_name, store, ingredients, grade, url, product_id FROM Products_Mayonnaises_A WHERE id=1")
             data.db.commit()
             print("savegarder dans vos favoris")
             print()
@@ -324,7 +324,7 @@ class Menu:
         print()
         save = int(input("Sauvegarder votre recherche ? 1 pour validé, 2 pour retourner au menu, 0 pour quitter: "))
         if save == 1:
-            data.cursor.execute("INSERT INTO Favorite (product_name, store, ingredients, grade, url, product_id) SELECT product_name, store, ingredients, grade, url, product_id FROM Products_Soupes_A WHERE id=1")
+            data.cursor.execute("INSERT IGNORE INTO Favorite (product_name, store, ingredients, grade, url, product_id) SELECT product_name, store, ingredients, grade, url, product_id FROM Products_Soupes_A WHERE id=1")
             data.db.commit()
             print("savegarder dans vos favoris")
             print()
@@ -378,7 +378,7 @@ class Menu:
         print()
         save = int(input("Sauvegarder votre recherche ? 1 pour validé, 2 pour retourner au menu, 0 pour quitter: "))
         if save == 1:
-            data.cursor.execute("INSERT INTO Favorite (product_name, store, ingredients, grade, url, product_id) SELECT product_name, store, ingredients, grade, url, product_id FROM Products_Chips_A WHERE id=1")
+            data.cursor.execute("INSERT IGNORE INTO Favorite (product_name, store, ingredients, grade, url, product_id) SELECT product_name, store, ingredients, grade, url, product_id FROM Products_Chips_A WHERE id=1")
             data.db.commit()
             print("savegarder dans vos favoris")
             print()
