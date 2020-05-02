@@ -60,7 +60,7 @@ une interface graphique sera développé en bonus.
 
 ## Exemple d'utilisation
 
-# Menu
+### Menu
 
  >>> 1. Quel aliment souhaitez-vous remplacer ?
 
@@ -72,7 +72,7 @@ Entrez votre choix ici entre 1 et 3 :
 
 ------------------------
 
-# Choix 1
+### Choix 1
 
 >> 1 - Mueslis
 >> 2 - Mayonnaises
@@ -84,7 +84,7 @@ Entrez votre choix ici entre 1 et 4 ou (revenir au menu 5), (aller au favorie 6)
 
 ------------------------
 
-# Choix Mayonnaises
+### Choix Mayonnaises
 
 >> 1 - Mayonnaise de Dijon
 >> 2 - Mayonnaise aux Œufs Frais
@@ -103,7 +103,7 @@ Entrez votre choix ici entre 1 et 12 :
 
 ------------------------
 
-# Choix 4
+### Choix 4
 
 >> Nom : Mayonnaise aux Œufs Frais
 >> Nutrition Grade : e
