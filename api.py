@@ -18,10 +18,10 @@ class Api:
 
     # Writing to the database of Category
     def list_category(self):
-        data.cursor.execute("INSERT INTO Category (category) VALUES (\"Mueslis\")")
-        data.cursor.execute("INSERT INTO Category (category) VALUES (\"Mayonnaises\")")
-        data.cursor.execute("INSERT INTO Category (category) VALUES (\"Soupes\")")
-        data.cursor.execute("INSERT INTO Category (category) VALUES (\"Chips\")")
+        data.cursor.execute("INSERT IGNORE INTO Category (category) VALUES (\"Mueslis\")")
+        data.cursor.execute("INSERT IGNORE INTO Category (category) VALUES (\"Mayonnaises\")")
+        data.cursor.execute("INSERT IGNORE INTO Category (category) VALUES (\"Soupes\")")
+        data.cursor.execute("INSERT IGNORE INTO Category (category) VALUES (\"Chips\")")
         data.db.commit()
 
     # Openfoodfact API call to retrieve data from the best muesli
@@ -34,7 +34,7 @@ class Api:
         product_liste_store = json_liste['products'][0]['stores']
         product_liste_ingredients = json_liste['products'][0]['ingredients_text_fr']
         product_liste_grade = json_liste['products'][0]['nutrition_grade_fr']
-        data.cursor.execute("INSERT INTO Products_Mueslis_A (product_name, store, ingredients, grade, url, product_id) VALUES (\"{}\", \"{}\", \"{}\", \"{}\", \"{}\", \"{}\")".format(product_liste, product_liste_store, product_liste_ingredients, product_liste_grade, product_liste_url, product_liste_id))
+        data.cursor.execute("INSERT IGNORE INTO Products_Mueslis_A (product_name, store, ingredients, grade, url, product_id) VALUES (\"{}\", \"{}\", \"{}\", \"{}\", \"{}\", \"{}\")".format(product_liste, product_liste_store, product_liste_ingredients, product_liste_grade, product_liste_url, product_liste_id))
 
         data.db.commit()
 
@@ -48,7 +48,7 @@ class Api:
         product_liste_store = json_liste['products'][0]['stores']
         product_liste_ingredients = json_liste['products'][0]['ingredients_text_fr']
         product_liste_grade = json_liste['products'][0]['nutrition_grade_fr']
-        data.cursor.execute("INSERT INTO Products_Mueslis_E (product_name, store, ingredients, grade, url, product_id) VALUES (\"{}\", \"{}\", \"{}\", \"{}\", \"{}\", \"{}\")".format(product_liste, product_liste_store, product_liste_ingredients, product_liste_grade, product_liste_url, product_liste_id))
+        data.cursor.execute("INSERT IGNORE INTO Products_Mueslis_E (product_name, store, ingredients, grade, url, product_id) VALUES (\"{}\", \"{}\", \"{}\", \"{}\", \"{}\", \"{}\")".format(product_liste, product_liste_store, product_liste_ingredients, product_liste_grade, product_liste_url, product_liste_id))
 
         data.db.commit()
         x=0
@@ -59,7 +59,7 @@ class Api:
             product_liste_store = json_liste['products'][1+x]['stores']
             product_liste_ingredients = json_liste['products'][1+x]['ingredients_text_fr']
             product_liste_grade = json_liste['products'][1+x]['nutrition_grade_fr']
-            data.cursor.execute("INSERT INTO Products_Mueslis_E (product_name, store, ingredients, grade, url, product_id) VALUES (\"{}\", \"{}\", \"{}\", \"{}\", \"{}\", \"{}\")".format(product_liste, product_liste_store, product_liste_ingredients, product_liste_grade, product_liste_url, product_liste_id))
+            data.cursor.execute("INSERT IGNORE INTO Products_Mueslis_E (product_name, store, ingredients, grade, url, product_id) VALUES (\"{}\", \"{}\", \"{}\", \"{}\", \"{}\", \"{}\")".format(product_liste, product_liste_store, product_liste_ingredients, product_liste_grade, product_liste_url, product_liste_id))
 
             data.db.commit()
             x = x+1
@@ -74,7 +74,7 @@ class Api:
         product_liste_store = json_liste['products'][0]['stores']
         product_liste_ingredients = json_liste['products'][0]['ingredients_text_fr']
         product_liste_grade = json_liste['products'][0]['nutrition_grade_fr']
-        data.cursor.execute("INSERT INTO Products_Mayonnaises_A (product_name, store, ingredients, grade, url, product_id) VALUES (\"{}\", \"{}\", \"{}\", \"{}\", \"{}\", \"{}\")".format(product_liste, product_liste_store, product_liste_ingredients, product_liste_grade, product_liste_url, product_liste_id))
+        data.cursor.execute("INSERT IGNORE INTO Products_Mayonnaises_A (product_name, store, ingredients, grade, url, product_id) VALUES (\"{}\", \"{}\", \"{}\", \"{}\", \"{}\", \"{}\")".format(product_liste, product_liste_store, product_liste_ingredients, product_liste_grade, product_liste_url, product_liste_id))
 
         data.db.commit()
 
@@ -88,7 +88,7 @@ class Api:
         product_liste_store = json_liste['products'][0]['stores']
         product_liste_ingredients = json_liste['products'][0]['ingredients_text_fr']
         product_liste_grade = json_liste['products'][0]['nutrition_grade_fr']
-        data.cursor.execute("INSERT INTO Products_Mayonnaises_E (product_name, store, ingredients, grade, url, product_id) VALUES (\"{}\", \"{}\", \"{}\", \"{}\", \"{}\", \"{}\")".format(product_liste, product_liste_store, product_liste_ingredients, product_liste_grade, product_liste_url, product_liste_id))
+        data.cursor.execute("INSERT IGNORE INTO Products_Mayonnaises_E (product_name, store, ingredients, grade, url, product_id) VALUES (\"{}\", \"{}\", \"{}\", \"{}\", \"{}\", \"{}\")".format(product_liste, product_liste_store, product_liste_ingredients, product_liste_grade, product_liste_url, product_liste_id))
 
         data.db.commit()
         x=0
@@ -99,7 +99,7 @@ class Api:
             product_liste_store = json_liste['products'][1+x]['stores']
             product_liste_ingredients = json_liste['products'][1+x]['ingredients_text_fr']
             product_liste_grade = json_liste['products'][1+x]['nutrition_grade_fr']
-            data.cursor.execute("INSERT INTO Products_Mayonnaises_E (product_name, store, ingredients, grade, url, product_id) VALUES (\"{}\", \"{}\", \"{}\", \"{}\", \"{}\", \"{}\")".format(product_liste, product_liste_store, product_liste_ingredients, product_liste_grade, product_liste_url, product_liste_id))
+            data.cursor.execute("INSERT IGNORE INTO Products_Mayonnaises_E (product_name, store, ingredients, grade, url, product_id) VALUES (\"{}\", \"{}\", \"{}\", \"{}\", \"{}\", \"{}\")".format(product_liste, product_liste_store, product_liste_ingredients, product_liste_grade, product_liste_url, product_liste_id))
 
             data.db.commit()
             x = x+1
@@ -114,7 +114,7 @@ class Api:
         product_liste_store = json_liste['products'][0]['stores']
         product_liste_ingredients = json_liste['products'][0]['ingredients_text_fr']
         product_liste_grade = json_liste['products'][0]['nutrition_grade_fr']
-        data.cursor.execute("INSERT INTO Products_Soupes_A (product_name, store, ingredients, grade, url, product_id) VALUES (\"{}\", \"{}\", \"{}\", \"{}\", \"{}\", \"{}\")".format(product_liste, product_liste_store, product_liste_ingredients, product_liste_grade, product_liste_url, product_liste_id))
+        data.cursor.execute("INSERT IGNORE INTO Products_Soupes_A (product_name, store, ingredients, grade, url, product_id) VALUES (\"{}\", \"{}\", \"{}\", \"{}\", \"{}\", \"{}\")".format(product_liste, product_liste_store, product_liste_ingredients, product_liste_grade, product_liste_url, product_liste_id))
 
         data.db.commit()
 
@@ -128,7 +128,7 @@ class Api:
         product_liste_store = json_liste['products'][0]['stores']
         product_liste_ingredients = json_liste['products'][0]['ingredients_text_fr']
         product_liste_grade = json_liste['products'][0]['nutrition_grade_fr']
-        data.cursor.execute("INSERT INTO Products_Soupes_E (product_name, store, ingredients, grade, url, product_id) VALUES (\"{}\", \"{}\", \"{}\", \"{}\", \"{}\", \"{}\")".format(product_liste, product_liste_store, product_liste_ingredients, product_liste_grade, product_liste_url, product_liste_id))
+        data.cursor.execute("INSERT IGNORE INTO Products_Soupes_E (product_name, store, ingredients, grade, url, product_id) VALUES (\"{}\", \"{}\", \"{}\", \"{}\", \"{}\", \"{}\")".format(product_liste, product_liste_store, product_liste_ingredients, product_liste_grade, product_liste_url, product_liste_id))
 
         data.db.commit()
         x=0
@@ -139,7 +139,7 @@ class Api:
             product_liste_store = json_liste['products'][1+x]['stores']
             product_liste_ingredients = json_liste['products'][1+x]['ingredients_text_fr']
             product_liste_grade = json_liste['products'][1+x]['nutrition_grade_fr']
-            data.cursor.execute("INSERT INTO Products_Soupes_E (product_name, store, ingredients, grade, url, product_id) VALUES (\"{}\", \"{}\", \"{}\", \"{}\", \"{}\", \"{}\")".format(product_liste, product_liste_store, product_liste_ingredients, product_liste_grade, product_liste_url, product_liste_id))
+            data.cursor.execute("INSERT IGNORE INTO Products_Soupes_E (product_name, store, ingredients, grade, url, product_id) VALUES (\"{}\", \"{}\", \"{}\", \"{}\", \"{}\", \"{}\")".format(product_liste, product_liste_store, product_liste_ingredients, product_liste_grade, product_liste_url, product_liste_id))
 
             data.db.commit()
             x = x+1
@@ -154,7 +154,7 @@ class Api:
         product_liste_store = json_liste['products'][0]['stores']
         product_liste_ingredients = json_liste['products'][0]['ingredients_text_fr']
         product_liste_grade = json_liste['products'][0]['nutrition_grade_fr']
-        data.cursor.execute("INSERT INTO Products_Chips_A (product_name, store, ingredients, grade, url, product_id) VALUES (\"{}\", \"{}\", \"{}\", \"{}\", \"{}\", \"{}\")".format(product_liste, product_liste_store, product_liste_ingredients, product_liste_grade, product_liste_url, product_liste_id))
+        data.cursor.execute("INSERT IGNORE INTO Products_Chips_A (product_name, store, ingredients, grade, url, product_id) VALUES (\"{}\", \"{}\", \"{}\", \"{}\", \"{}\", \"{}\")".format(product_liste, product_liste_store, product_liste_ingredients, product_liste_grade, product_liste_url, product_liste_id))
 
         data.db.commit()
 
@@ -168,7 +168,7 @@ class Api:
         product_liste_store = json_liste['products'][0]['stores']
         product_liste_ingredients = json_liste['products'][0]['ingredients_text_fr']
         product_liste_grade = json_liste['products'][0]['nutrition_grade_fr']
-        data.cursor.execute("INSERT INTO Products_Chips_E (product_name, store, ingredients, grade, url, product_id) VALUES (\"{}\", \"{}\", \"{}\", \"{}\", \"{}\", \"{}\")".format(product_liste, product_liste_store, product_liste_ingredients, product_liste_grade, product_liste_url, product_liste_id))
+        data.cursor.execute("INSERT IGNORE INTO Products_Chips_E (product_name, store, ingredients, grade, url, product_id) VALUES (\"{}\", \"{}\", \"{}\", \"{}\", \"{}\", \"{}\")".format(product_liste, product_liste_store, product_liste_ingredients, product_liste_grade, product_liste_url, product_liste_id))
 
         data.db.commit()
         x=0
@@ -179,7 +179,7 @@ class Api:
             product_liste_store = json_liste['products'][1+x]['stores']
             product_liste_ingredients = json_liste['products'][1+x]['ingredients_text_fr']
             product_liste_grade = json_liste['products'][1+x]['nutrition_grade_fr']
-            data.cursor.execute("INSERT INTO Products_Chips_E (product_name, store, ingredients, grade, url, product_id) VALUES (\"{}\", \"{}\", \"{}\", \"{}\", \"{}\", \"{}\")".format(product_liste, product_liste_store, product_liste_ingredients, product_liste_grade, product_liste_url, product_liste_id))
+            data.cursor.execute("INSERT IGNORE INTO Products_Chips_E (product_name, store, ingredients, grade, url, product_id) VALUES (\"{}\", \"{}\", \"{}\", \"{}\", \"{}\", \"{}\")".format(product_liste, product_liste_store, product_liste_ingredients, product_liste_grade, product_liste_url, product_liste_id))
 
             data.db.commit()
             x = x+1

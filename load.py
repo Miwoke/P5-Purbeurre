@@ -11,8 +11,6 @@ class Load:
     """
 
     def __init__(self):
-        data.cursor.execute('CREATE DATABASE IF NOT EXISTS Purbeurre')
-        data.cursor.execute('USE Purbeurre')
         data.create_table_category()
         data.create_table_products_mueslis_A()
         data.create_table_products_mueslis_E()

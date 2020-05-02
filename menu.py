@@ -1,14 +1,12 @@
-import os 
-
-import load
-import api
 import database
+import api
+import load
 
-api=api.Api()
-data=database.Database()
+api = api.Api()
+data = database.Database()
 load = load.Load()
 
-data.cursor.execute('USE Purbeurre')
+
 
 class Menu:
     """
@@ -146,18 +144,42 @@ class Menu:
             i += 1
         print()
     
+    # Convert tuple on str
+    def convertTuple(self,tup): 
+        str_tuple =  ''.join(tup) 
+        return str_tuple
+
     # Here we retrieve the information stored in the preferred database for those used
     def select_favorite(self):
         print("--------------------- FAVORIES ---------------------")
         print()
-        data.cursor.execute("SELECT product_name, store, ingredients, url, product_id FROM Favorite")
-        f = data.cursor.fetchall()
-        i = 0
-        while i < len(f):
-            st =''.join(str(f[i]))
-            print(">> {} - ".format(i+1) + st)
-            i += 1
-        print()
+        data.cursor.execute("SELECT * FROM Favorite")
+        test = data.cursor.fetchall()
+        x = 0
+        while x < len(test):
+            data.cursor.execute("SELECT product_name FROM Favorite")
+            f = data.cursor.fetchall()
+            tp = self.convertTuple(f[0 + x])
+            print(">>> Nom du produit : " + tp)
+            data.cursor.execute("SELECT ingredients FROM Favorite")
+            f = data.cursor.fetchall()
+            tp = self.convertTuple(f[0 + x])
+            print("    Ingredients du produit : " + tp)
+            data.cursor.execute("SELECT grade FROM Favorite")
+            f = data.cursor.fetchall()
+            tp = self.convertTuple(f[0 + x])
+            print("    Grade nutritionel : " + tp)
+            data.cursor.execute("SELECT store FROM Favorite")
+            f = data.cursor.fetchall()
+            tp = self.convertTuple(f[0 + x])
+            print("    Magasins disponible : " + tp)
+            data.cursor.execute("SELECT url FROM Favorite")
+            f = data.cursor.fetchall()
+            tp = self.convertTuple(f[0 + x])
+            print("    URL du produit : " + tp)
+            print()
+            print("-----------------------------------------------------")
+            x += 1
         choice_favorite = int(input("Entrez votre choix ici, (revenir au menu 1), (quitter 2) : "))
         print()
         if choice_favorite == 1:
@@ -194,7 +216,7 @@ class Menu:
         print()
         save = int(input("Sauvegarder votre recherche ? 1 pour validé, 2 pour retourner au menu, 0 pour quitter: "))
         if save == 1:
-            data.cursor.execute("INSERT INTO Favorite (product_name, store, ingredients, url, product_id) SELECT product_name, store, ingredients, url, product_id FROM Products_Mueslis_A WHERE id=1")
+            data.cursor.execute("INSERT INTO Favorite (product_name, store, ingredients, grade, url, product_id) SELECT product_name, store, ingredients, grade, url, product_id FROM Products_Mueslis_A WHERE id=1")
             data.db.commit()
             print("savegarder dans vos favoris")
             print()
@@ -248,7 +270,7 @@ class Menu:
         print()
         save = int(input("Sauvegarder votre recherche ? 1 pour validé, 2 pour retourner au menu, 0 pour quitter: "))
         if save == 1:
-            data.cursor.execute("INSERT INTO Favorite (product_name, store, ingredients, url, product_id) SELECT product_name, store, ingredients, url, product_id FROM Products_Mayonnaises_A WHERE id=1")
+            data.cursor.execute("INSERT INTO Favorite (product_name, store, ingredients, grade, url, product_id) SELECT product_name, store, ingredients, grade, url, product_id FROM Products_Mayonnaises_A WHERE id=1")
             data.db.commit()
             print("savegarder dans vos favoris")
             print()
@@ -302,7 +324,7 @@ class Menu:
         print()
         save = int(input("Sauvegarder votre recherche ? 1 pour validé, 2 pour retourner au menu, 0 pour quitter: "))
         if save == 1:
-            data.cursor.execute("INSERT INTO Favorite (product_name, store, ingredients, url, product_id) SELECT product_name, store, ingredients, url, product_id FROM Products_Soupes_A WHERE id=1")
+            data.cursor.execute("INSERT INTO Favorite (product_name, store, ingredients, grade, url, product_id) SELECT product_name, store, ingredients, grade, url, product_id FROM Products_Soupes_A WHERE id=1")
             data.db.commit()
             print("savegarder dans vos favoris")
             print()
@@ -356,7 +378,7 @@ class Menu:
         print()
         save = int(input("Sauvegarder votre recherche ? 1 pour validé, 2 pour retourner au menu, 0 pour quitter: "))
         if save == 1:
-            data.cursor.execute("INSERT INTO Favorite (product_name, store, ingredients, url, product_id) SELECT product_name, store, ingredients, url, product_id FROM Products_Chips_A WHERE id=1")
+            data.cursor.execute("INSERT INTO Favorite (product_name, store, ingredients, grade, url, product_id) SELECT product_name, store, ingredients, grade, url, product_id FROM Products_Chips_A WHERE id=1")
             data.db.commit()
             print("savegarder dans vos favoris")
             print()
