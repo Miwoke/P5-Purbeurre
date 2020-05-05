@@ -46,6 +46,7 @@ une interface graphique sera développé en bonus.
 
  1. Lancez MySQL.
  2. Pour installer les packages requis, exécutez la commande : `py -m pip install -r requirements.txt`
+ 3. Changer les informations de connection a votre data MySQL dans le dossier constant.py
  
  #### Note : l'installation d'un environnement virtuel n'est pas obligatoire, mais conseiller. 
 
