@@ -1,12 +1,14 @@
 import mysql.connector
 
+from constant import *
+
 class Database:
     """
     This class aims to gather all the classes in MySQL for our project, 
     you will find here all the database.
     """
     def __init__(self):
-        self.db = mysql.connector.connect(host= "localhost", user= "root", passwd= "6842tera",)
+        self.db = mysql.connector.connect(host= HOST, user= USER, passwd= PASSWD,) # You find the constant on constant.py
         self.cursor = self.db.cursor(buffered=True)
         self.commit = self.db.commit()
         self.create_bdd = self.cursor.execute('CREATE DATABASE IF NOT EXISTS Purbeurre')
